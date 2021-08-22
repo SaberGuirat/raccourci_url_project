@@ -12,7 +12,7 @@
     "server-install": "npm install ",
     "client-install": "cd client && npm install ",
     "preinstall": "npm install -g @angular/cli@9.1.15",
-    "heroku-postbuild": "cd client && npm install && ng build --output-path dist/",
+    "heroku-postbuild": "cd client && npm install && ng build --prod --output-path dist/",
     "dev": "nodemon server.js"
   },
   "keywords": [],
