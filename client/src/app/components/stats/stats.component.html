@@ -1,0 +1,72 @@
+<div>
+  <div class="mat-elevation-z8" *ngIf="urls.length">
+    <table mat-table [dataSource]="dataSource">
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+      </ng-container>
+
+      <!-- Url raccourci Column -->
+      <ng-container matColumnDef="URL">
+        <th mat-header-cell *matHeaderCellDef>URL Raccourci</th>
+        <td mat-cell *matCellDef="let element">
+          <a (click)="navigate(element.urlCode)">{{ element.shortUrl }}</a>
+        </td>
+      </ng-container>
+
+      <!-- Created At Column -->
+      <ng-container matColumnDef="createdAt">
+        <th mat-header-cell *matHeaderCellDef>Created At</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.createdAt | date: "medium" }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="visited">
+        <th mat-header-cell *matHeaderCellDef>Visited At</th>
+        <td mat-cell *matCellDef="let element">
+          <span matBadge="{{ element.visited }}" matBadgeOverlap="false">{{
+            element.updatedAt | date: "medium"
+          }}</span>
+        </td>
+      </ng-container>
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            color="warn"
+            mat-icon-button
+            aria-label="icon"
+            matTooltip="Delete URL"
+            (click)="deleteUrl(element._id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="primary"
+            aria-label="icon"
+            matTooltip="Open URL in new tab"
+            (click)="visitUrl(element.urlCode)"
+          >
+            <mat-icon>open_in_new</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
+  <div class="login-container" *ngIf="!urls.length">
+    {{ errMessage }}
+  </div>
+</div>

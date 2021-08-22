@@ -1,0 +1,7 @@
+<div class="login-container">
+  <!-- redirect works! <span *ngIf="url">{{ url | json }}</span> -->
+  <mat-error *ngIf="errMessage">
+    {{ errMessage }}
+  </mat-error>
+  <span *ngIf="!errMessage" >{{ message }}</span>
+</div>
