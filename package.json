@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "engines": {
-    "node": "14.x"
+    "node": "12.x"
   },
   "main": "server.js",
   "scripts": {
@@ -11,8 +11,8 @@
     "client": "cd client && ng serve ",
     "server-install": "npm install ",
     "client-install": "cd client && npm install ",
-    "preinstall": "npm install -g @angular/cli@9.1.15 && npm install -g @angular-devkit/build-angular@0.901.15",
-    "heroku-postbuild": "cd client && npm install && ng build",
+    "preinstall": "npm install -g @angular/cli@9.1.15",
+    "postinstall": "cd client && npm install && ng build",
     "dev": "nodemon server.js"
   },
   "keywords": [],
