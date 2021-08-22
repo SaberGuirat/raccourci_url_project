@@ -11,7 +11,7 @@
     "client": "cd client && ng serve ",
     "server-install": "npm install ",
     "client-install": "cd client && npm install ",
-    "preinstall": "npm install -g @angular/cli@9.1.15 @angular-devkit/build-angular",
+    "preinstall": "npm install -g @angular/cli@9.1.15",
     "postinstall": "cd client && npm install && ng build",
     "dev": "nodemon server.js"
   },
