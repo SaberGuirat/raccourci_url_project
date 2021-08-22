@@ -5,6 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "client": "cd client && ng serve ",
+    "server-install": "npm install ",
+    "client-install": "cd client && npm install ",
+    "heroku-postbuild": "cd client && npm install && ng build --prod ",
     "dev": "nodemon server.js"
   },
   "keywords": [],

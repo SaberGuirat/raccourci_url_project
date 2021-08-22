@@ -20,6 +20,13 @@ app.use(cookieParser());
 app.use("/api/user", require("./routes/authRouter.js"));
 app.use("/api/url", require("./routes/urlRouter.js"));
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/dist"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+  });
+}
+
 // run server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, (error) => {
