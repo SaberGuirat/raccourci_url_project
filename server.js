@@ -1,6 +1,7 @@
 //dependencies
 require("dotenv").config();
 const express = require("express");
+const path = require("path");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const connectDB = require("./db/connectDB");
@@ -17,7 +18,6 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 app.use(helmet());
-
 
 //routes
 app.use("/api/user", require("./routes/authRouter.js"));
