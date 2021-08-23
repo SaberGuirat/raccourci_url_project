@@ -15,4 +15,3 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "test-tech-gs" #Must be unique in Heroku
           heroku_email: "saber.guirat92@gmail.com"
-Z
