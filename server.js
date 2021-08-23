@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const connectDB = require("./db/connectDB");
+const helmet = require("helmet");
 
 // init express app
 const app = express();
@@ -15,11 +16,14 @@ connectDB();
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
+app.use(helmet());
+
 
 //routes
 app.use("/api/user", require("./routes/authRouter.js"));
 app.use("/api/url", require("./routes/urlRouter.js"));
 
+//static route in production mode
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/dist"));
   app.get("*", (req, res) => {

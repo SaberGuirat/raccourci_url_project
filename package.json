@@ -7,16 +7,16 @@
   },
   "main": "server.js",
   "scripts": {
+    "server": "nodemon server.js",
     "start": "node server.js",
-    "client": "cd client && ng serve ",
-    "server-install": "npm install ",
+    "client": "cd client && ng serve --open",
     "client-install": "cd client && npm install ",
+    "server-install": "npm install ",
     "preinstall": "npm install -g @angular/cli@9.1.15",
-    "heroku-postbuild": "cd client && npm install && ng build --prod --output-path dist/",
-    "dev": "nodemon server.js"
+    "heroku-postbuild": "cd client && npm install && ng build --prod --output-path dist/"
   },
   "keywords": [],
-  "author": "",
+  "author": "Saber Guirat",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -24,6 +24,7 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.7",
     "shortid": "^2.2.16"

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../interfaces/user.interface';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import {
@@ -83,13 +82,13 @@ export class RegisterComponent implements OnInit {
         })
         .subscribe(
           (data) => {
-            this.loading = false;
             this.router.navigateByUrl('/login');
+            this.loading = false;
             this.resetForm();
           },
           (err) => {
             this.loading = false;
-            this.errMess = <any>err;
+            this.errMess = err;
             setTimeout(() => {
               this.errMess = '';
             }, 3000);

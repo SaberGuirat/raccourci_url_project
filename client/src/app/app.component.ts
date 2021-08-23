@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { environment } from './../environments/environment';
-// import { shareReplay } from 'rxjs/operators';
 import { AuthService } from './services/auth.service';
 import { User } from './interfaces/user.interface';
 import { share } from 'rxjs/operators';

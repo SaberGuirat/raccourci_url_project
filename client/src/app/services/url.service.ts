@@ -5,7 +5,6 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { UrlI } from '../interfaces/url.interface';
-import { Url } from 'url';
 @Injectable({
   providedIn: 'root',
 })
@@ -28,7 +27,6 @@ export class UrlService {
   }
 
   visitUrl(code: string): Observable<UrlI> {
-    console.log(`${environment.BASE_URL}/api/url/visit/${code}`);
     return this.http
       .get<UrlI>(`${environment.BASE_URL}/api/url/visit/${code}`)
       .pipe(catchError(this.errorHandlerService.handleError));

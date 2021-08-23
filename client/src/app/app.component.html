@@ -8,7 +8,7 @@
     >
       <mat-icon>menu</mat-icon>
     </button>
-    <span class="title">
+    <span class="title" routerLink="/">
       {{ title }}
     </span>
     <mat-icon>code</mat-icon>
@@ -34,7 +34,6 @@
     <mat-icon>input</mat-icon>
     Login
   </a>
-  <!-- <span>{{ userInfo.fullname }}</span> -->
   <a *ngIf="user$ | async" (click)="logout()" class="nav-link" mat-button>
     Logout
     <mat-icon>power_settings_new</mat-icon>

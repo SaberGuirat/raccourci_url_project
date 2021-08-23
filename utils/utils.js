@@ -1,3 +1,5 @@
+
+// check if a url is valid 
 function validURL(str) {
   let pattern = new RegExp(
     "^(https?:\\/\\/)?" + // protocol

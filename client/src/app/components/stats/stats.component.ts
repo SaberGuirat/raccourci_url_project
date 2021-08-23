@@ -43,7 +43,6 @@ export class StatsComponent implements OnInit {
       (url) => {
         this.urls = this.urls.filter((el) => el._id !== url._id);
         this.dataSource = new MatTableDataSource<UrlI>(this.urls);
-        // this.dataSource.paginator = this.paginator;
         setTimeout(() => {
           this.dataSource.paginator = this.paginator;
         });
@@ -55,7 +54,6 @@ export class StatsComponent implements OnInit {
   visitUrl(code: string) {
     this.urlService.visitUrl(code).subscribe(
       (url) => {
-        console.log(url.visited);
         this.urls = this.urls.map((el) => {
           if (el._id === url._id) return { ...el, visited: url.visited };
           else {

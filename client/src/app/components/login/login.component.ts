@@ -15,17 +15,28 @@ export class LoginComponent implements OnInit {
     password: '',
   };
   errMess: string = '';
+  loading: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
   login(user: User) {
+    this.loading = true;
     this.authService.login(user).subscribe(
       (data) => {
         this.router.navigateByUrl('/home');
-      },
-      (err) => (this.errMess = err)
+        this.loading = false;
+        this.errMess = '';
+        this.user.email = '';
+        this.user.password = '';      },
+      (err) => {
+        this.loading = false;
+        this.errMess = err;
+        setTimeout(() => {
+          this.errMess = '';
+        }, 3000);
+      }
     );
   }
 }
